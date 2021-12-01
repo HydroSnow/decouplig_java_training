@@ -29,9 +29,9 @@ public class HumanPlayer implements Player {
         // true: plus petit
         // false: plus grand
         if (lowerOrGreater) {
-            System.out.println("C'est plus petit.");
+            logger.log("C'est plus petit.");
         } else {
-            System.out.println("C'est plus grand.");
+            logger.log("C'est plus grand.");
         }
     }
 }

@@ -32,16 +32,24 @@ public class Simulation {
         }
     }
 
-    public void loopUntilPlayerSucceed() {
-        boolean guessing = true;
-        int round = 0;
-        while (guessing) {
+    public void loopUntilPlayerSucceed(final long maxRounds) {
+        final long start = System.currentTimeMillis();
+
+        for (long round = 0; round < maxRounds; round++) {
             logger.log("Loop " + round);
             final boolean stop = nextRound();
             if (stop) {
-                guessing = false;
+                break;
             }
-            round++;
         }
+
+        final long time = System.currentTimeMillis() - start;
+        final long milliseconds = time % 1000;
+        final long seconds = (time / 1000) % 60;
+        final long minutes = (time / 60000);
+        logger.log("Elapsed: "
+            + (minutes < 10 ? "0" : "") + minutes
+            + ":" + (seconds < 10 ? "0" : "") + seconds
+            + "." + (milliseconds < 100 ? "0" : "") + (milliseconds < 10 ? "0" : "") + milliseconds);
     }
 }
