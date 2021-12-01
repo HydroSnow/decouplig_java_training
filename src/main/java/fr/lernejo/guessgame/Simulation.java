@@ -23,11 +23,16 @@ public class Simulation {
     private boolean nextRound() {
         final long guess = player.askNextGuess();
         if (guess == numberToGuess) {
-            logger.log("Player has guessed the right number");
+            logger.log("Player guess is the right number");
             return true;
         } else {
-            logger.log("Player has not guessed the right number");
-            player.respond(numberToGuess < guess);
+            if (numberToGuess < guess) {
+                logger.log("Player guess is above the right number");
+                player.respond(true);
+            } else {
+                logger.log("Player guess is below the right number");
+                player.respond(false);
+            }
             return false;
         }
     }

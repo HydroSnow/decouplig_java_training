@@ -13,15 +13,16 @@ public class HumanPlayer implements Player {
     @Override
     public long askNextGuess() {
         // demander au joueur un nombre
-        logger.log("Entrez un nombre:");
+        System.out.println("Entrez un nombre:");
 
         // lire le nombre
-        final long value = scanner.nextLong();
+        final long guess = scanner.nextLong();
+        logger.log("Player has entered " + guess);
 
         // consommer la ligne
         scanner.nextLine();
 
-        return value;
+        return guess;
     }
 
     @Override
@@ -29,9 +30,9 @@ public class HumanPlayer implements Player {
         // true: plus petit
         // false: plus grand
         if (lowerOrGreater) {
-            logger.log("C'est plus petit.");
+            System.out.println("C'est plus petit.");
         } else {
-            logger.log("C'est plus grand.");
+            System.out.println("C'est plus grand.");
         }
     }
 }
