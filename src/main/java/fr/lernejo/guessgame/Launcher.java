@@ -30,6 +30,9 @@ public class Launcher {
             logger.log("Selected automatic");
 
             final long number = Long.parseLong(args[1]);
+            if (number < 0) {
+                throw new IllegalArgumentException("Number cannot be negative");
+            }
             logger.log("Number is " + number);
 
             final Player player = new ComputerPlayer();
