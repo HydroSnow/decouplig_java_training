@@ -21,6 +21,8 @@ public class Launcher {
             simulation.loopUntilPlayerSucceed(1000);
             return;
         }
-        System.out.println("e");
+        System.out.println("Arguments:");
+        System.out.println(" -interactive");
+        System.out.println(" -auto [nombre]");
     }
 }
