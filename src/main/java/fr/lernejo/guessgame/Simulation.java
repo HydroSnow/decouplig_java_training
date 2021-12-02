@@ -44,6 +44,7 @@ public class Simulation {
             logger.log("Loop " + round);
             final boolean stop = nextRound();
             if (stop) {
+                logger.log("Player won");
                 break;
             }
         }
